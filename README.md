@@ -7,8 +7,10 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: Python implementation of JSON Schema,
+Summary: An implementation of JSON Schema validation for Python
 
+jsonschema is an implementation of JSON Schema for Python
+(supporting 2.7+ including Python 3)
 
 
 Current build status
@@ -66,6 +68,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========

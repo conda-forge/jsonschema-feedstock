@@ -10,8 +10,11 @@ source:
   sha256: 6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02
 
 build:
-  number: 0
-  script: pip install .
+  number: 1
+  script: pip install --no-deps --ignore-installed .
+  entry_points:
+    - jsonschema = jsonschema.cli:main
+
 
 requirements:
   build:
