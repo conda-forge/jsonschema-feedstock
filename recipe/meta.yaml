@@ -1,7 +1,7 @@
 {% set version = "2.6.0" %}
 
 package:
-  name: jsonschema
+  name: jsonschema_split
   version: {{ version }}
 
 source:
@@ -10,26 +10,50 @@ source:
   sha256: 6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02
 
 build:
-  number: 1
-  script: pip install --no-deps --ignore-installed .
-  entry_points:
-    - jsonschema = jsonschema.cli:main
+  number: 2
 
+outputs:
+  - name: jsonschema
+    build:
+      noarch: python
+      script: pip install --no-deps --ignore-installed .
+      entry_points:
+        - jsonschema = jsonschema.cli:main
 
-requirements:
-  build:
-    - python
-    - pip
-    - vcversioner
-  run:
-    - python
-    - functools32  # [py27]
+    requirements:
+      build:
+        - python
+        - pip
+        - vcversioner
+      run:
+        - jsonschema_reqs
+    test:
+      imports:
+        - jsonschema
+      commands:
+        - jsonschema --help
 
-test:
-  imports:
-    - jsonschema
-  commands:
-    - jsonschema --help
+    about:
+      home: https://github.com/Julian/jsonschema
+      license: MIT
+      license_file: COPYING
+      summary: An implementation of JSON Schema validation for Python
+      description: |
+        jsonschema is an implementation of JSON Schema for Python
+        (supporting 2.7+ including Python 3)
+      doc_url: https://python-jsonschema.readthedocs.org
+      doc_source_url: https://github.com/Julian/jsonschema/blob/master/docs/index.rst
+      dev_url: https://github.com/Julian/jsonschema/
+
+  - name: jsonschema_reqs
+    build:
+      noarch: true
+    requirements:
+      build:
+        - python
+      run:
+        - python
+        - functools32  # [py27]
 
 about:
   home: https://github.com/Julian/jsonschema
