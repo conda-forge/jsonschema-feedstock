@@ -1,5 +1,5 @@
-About jsonschema
-================
+About jsonschema_split
+======================
 
 Home: https://github.com/Julian/jsonschema
 
@@ -16,9 +16,8 @@ jsonschema is an implementation of JSON Schema for Python
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/jsonschema-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/jsonschema-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/jsonschema-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/jsonschema-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/jsonschema-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/jsonschema-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/jsonschema-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/jsonschema-feedstock)
 
 Current release info
 ====================
@@ -26,20 +25,21 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-jsonschema-green.svg)](https://anaconda.org/conda-forge/jsonschema) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jsonschema.svg)](https://anaconda.org/conda-forge/jsonschema) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jsonschema.svg)](https://anaconda.org/conda-forge/jsonschema) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jsonschema.svg)](https://anaconda.org/conda-forge/jsonschema) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jsonschema_reqs-green.svg)](https://anaconda.org/conda-forge/jsonschema_reqs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jsonschema_reqs.svg)](https://anaconda.org/conda-forge/jsonschema_reqs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jsonschema_reqs.svg)](https://anaconda.org/conda-forge/jsonschema_reqs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jsonschema_reqs.svg)](https://anaconda.org/conda-forge/jsonschema_reqs) |
 
-Installing jsonschema
-=====================
+Installing jsonschema_split
+===========================
 
-Installing `jsonschema` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `jsonschema_split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `jsonschema` can be installed with:
+Once the `conda-forge` channel has been enabled, `jsonschema, jsonschema_reqs` can be installed with:
 
 ```
-conda install jsonschema
+conda install jsonschema jsonschema_reqs
 ```
 
 It is possible to list all of the versions of `jsonschema` available on your platform with:
@@ -85,17 +85,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating jsonschema-feedstock
-=============================
+Updating jsonschema_split-feedstock
+===================================
 
-If you would like to improve the jsonschema recipe or build a new
+If you would like to improve the jsonschema_split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/jsonschema-feedstock are
+Note that all branches in the conda-forge/jsonschema_split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
