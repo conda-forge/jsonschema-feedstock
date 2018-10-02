@@ -9,7 +9,7 @@ source:
   sha256: 6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02
 
 build:
-  number: 2
+  number: 1002
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - jsonschema = jsonschema.cli:main
