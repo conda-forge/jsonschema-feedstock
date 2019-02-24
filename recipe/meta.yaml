@@ -1,4 +1,4 @@
-{% set version = "3.0.0a3" %}
+{% set version = "3.0.0" %}
 
 package:
   name: jsonschema
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jsonschema/jsonschema-{{ version }}.tar.gz
-  sha256: dfd8426040892c8d0ef6da574085f282569f189cb24b70091a66c21c12d6705e
+  sha256: acc8a90c31d11060516cfd0b414b9f8bcf4bc691b21f0f786ea57dd5255c79db
 
 build:
-  number: 1000
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - jsonschema = jsonschema.cli:main
