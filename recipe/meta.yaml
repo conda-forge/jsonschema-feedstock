@@ -34,10 +34,12 @@ requirements:
     # - functools32  # [py27]
 
 test:
+  requires:
+    - pip
   imports:
     - jsonschema
   commands:
-    - pip check
+    - python -m pip check
     - jsonschema --help
 
 about:
