@@ -9,29 +9,29 @@ source:
   sha256: c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  number: 2
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - jsonschema = jsonschema.cli:main
 
 requirements:
   host:
-    - python
     - pip
+    - python >=3.6
     - setuptools_scm
   run:
-    - python
-    - setuptools
     - attrs >=17.4.0
-    - pyrsistent >=0.14.0
     - importlib_metadata
-    - six >=1.11.0
-    - functools32  # [py27]
+    - pyrsistent >=0.14.0
+    - python >=3.6
+    - setuptools
 
 test:
   imports:
     - jsonschema
   commands:
+    - pip check
     - jsonschema --help
 
 about:
@@ -43,11 +43,12 @@ about:
     jsonschema is an implementation of JSON Schema for Python
     (supporting 2.7+ including Python 3)
   doc_url: https://python-jsonschema.readthedocs.org
-  doc_source_url: https://github.com/Julian/jsonschema/blob/master/docs/index.rst
-  dev_url: https://github.com/Julian/jsonschema/
+  doc_source_url: https://github.com/Julian/jsonschema/blob/v{{ version }}/docs/index.rst
+  dev_url: https://github.com/Julian/jsonschema
 
 extra:
   recipe-maintainers:
     - minrk
     - ocefpaf
     - nehaljwani
+    - bollwyvl
