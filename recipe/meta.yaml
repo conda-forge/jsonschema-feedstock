@@ -1,4 +1,4 @@
-{% set version = "3.2.0" %}
+{% set version = "4.0.1" %}
 
 package:
   name: jsonschema
@@ -6,27 +6,27 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jsonschema/jsonschema-{{ version }}.tar.gz
-  sha256: c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a
+  sha256: 48f4e74f8bec0c2f75e9fcfffa264e78342873e1b57e2cfeae54864cc5e9e4dd
 
 build:
-  number: 3
+  number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - jsonschema = jsonschema.cli:main
 
 requirements:
   host:
-    - pip
     - python >=3.6
+    - pip
     - setuptools_scm
   run:
+    - python >=3.6
     - attrs >=17.4.0
     # TODO: upstream, this is conditional to <3.8, but probably not worth the non-noarch build
     - importlib-metadata
-    - pyrsistent >=0.14.0
+    - pyrsistent !=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0
     # TODO: >3.2.0 sets this explicitly, but conda-forge no longer supports <3.6...
-    - python >=3.6
     # TODO: >3.2.0 will no longer depend on/mention these
     - six >=1.11.0
     - setuptools
