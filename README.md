@@ -13,10 +13,6 @@ Development: https://github.com/Julian/jsonschema
 
 Documentation: https://python-jsonschema.readthedocs.org
 
-jsonschema is an implementation of JSON Schema for Python
-(supporting 2.7+ including Python 3)
-
-
 Current build status
 ====================
 
