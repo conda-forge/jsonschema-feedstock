@@ -19,7 +19,7 @@ requirements:
   host:
     - python >=3.7
     - pip
-    - setuptools_scm
+    - setuptools-scm
   run:
     - attrs >=17.4.0
     # TODO: upstream, importlib-* are conditional to <3.8/9, but probably not worth the non-noarch builds
@@ -29,22 +29,31 @@ requirements:
     - python >=3.7
 
 test:
+  files:
+    - start_test.py
+  source_files:
+    - json
+    - jsonschema/tests
   requires:
     - pip
+    - pytest-cov
+    - flask
   imports:
     - jsonschema
   commands:
-    - python -m pip check
+    - pip check
+    - jsonschema --version
     - jsonschema --help
+    - jsonschema --version | grep {{ version.replace(".", "\.") }}  # [unix]
+    # additional pytest args are set in start_test.py
+    - python start_test.py --cov-fail-under=93 -k "not find_validator_by_fully_qualified_object_name"
+
 
 about:
   home: https://github.com/Julian/jsonschema
   license: MIT
   license_file: COPYING
   summary: An implementation of JSON Schema validation for Python
-  description: |
-    jsonschema is an implementation of JSON Schema for Python
-    (supporting 2.7+ including Python 3)
   doc_url: https://python-jsonschema.readthedocs.org
   doc_source_url: https://github.com/Julian/jsonschema/blob/v{{ version }}/docs/index.rst
   dev_url: https://github.com/Julian/jsonschema
