@@ -17,21 +17,16 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7
     - pip
     - setuptools_scm
   run:
-    - python >=3.6
     - attrs >=17.4.0
-    # TODO: upstream, this is conditional to <3.8, but probably not worth the non-noarch build
+    # TODO: upstream, importlib-* are conditional to <3.8/9, but probably not worth the non-noarch builds
     - importlib-metadata
+    - importlib_resources
     - pyrsistent !=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0
-    # TODO: >3.2.0 sets this explicitly, but conda-forge no longer supports <3.6...
-    # TODO: >3.2.0 will no longer depend on/mention these
-    - six >=1.11.0
-    - setuptools
-    # technically still supported, but needed for noarch
-    # - functools32  # [py27]
+    - python >=3.7
 
 test:
   requires:
