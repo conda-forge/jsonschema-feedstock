@@ -1,4 +1,4 @@
-{% set version = "4.1.2" %}
+{% set version = "4.2.0" %}
 
 package:
   name: jsonschema
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jsonschema/jsonschema-{{ version }}.tar.gz
-  sha256: 5c1a282ee6b74235057421fd0f766ac5f2972f77440927f6471c9e8493632fac
+  sha256: e2d3601321ac74d38214e2853300ae740cd07e53d919a15862b8c71f9d840574
 
 build:
   number: 0
@@ -17,39 +17,43 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7
     - pip
-    - setuptools_scm
+    - setuptools-scm
   run:
-    - python >=3.6
     - attrs >=17.4.0
-    # TODO: upstream, this is conditional to <3.8, but probably not worth the non-noarch build
+    # TODO: upstream, importlib-* are conditional to <3.8/9, but probably not worth the non-noarch builds
     - importlib-metadata
+    - importlib_resources
     - pyrsistent !=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0
-    # TODO: >3.2.0 sets this explicitly, but conda-forge no longer supports <3.6...
-    # TODO: >3.2.0 will no longer depend on/mention these
-    - six >=1.11.0
-    - setuptools
-    # technically still supported, but needed for noarch
-    # - functools32  # [py27]
+    - python >=3.7
 
 test:
+  files:
+    - start_test.py
+  source_files:
+    - json
+    - jsonschema/tests
   requires:
     - pip
+    - pytest-cov
+    - flask
   imports:
     - jsonschema
   commands:
-    - python -m pip check
+    - pip check
+    - jsonschema --version
     - jsonschema --help
+    - jsonschema --version | grep {{ version.replace(".", "\.") }}  # [unix]
+    # additional pytest args are set in start_test.py
+    - python start_test.py --cov-fail-under=93 -k "not find_validator_by_fully_qualified_object_name"
+
 
 about:
   home: https://github.com/Julian/jsonschema
   license: MIT
   license_file: COPYING
   summary: An implementation of JSON Schema validation for Python
-  description: |
-    jsonschema is an implementation of JSON Schema for Python
-    (supporting 2.7+ including Python 3)
   doc_url: https://python-jsonschema.readthedocs.org
   doc_source_url: https://github.com/Julian/jsonschema/blob/v{{ version }}/docs/index.rst
   dev_url: https://github.com/Julian/jsonschema
