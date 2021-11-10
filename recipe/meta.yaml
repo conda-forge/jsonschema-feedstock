@@ -30,14 +30,22 @@ requirements:
     - six >=1.11.0
 
 test:
+  files:
+    - start_test.py
+  source_files:
+    - json
+    - jsonschema/tests
   requires:
     - pip
+    - pytest-cov
+    - twisted
   imports:
     - jsonschema
   commands:
     - pip check
     - jsonschema --help
     - jsonschema --version | grep {{ version.replace(".", "\.") }}
+    - python start_test.py --cov-fail-under=92 -k "not find_validator_by_fully_qualified_object_name"
 
 about:
   home: https://github.com/Julian/jsonschema
