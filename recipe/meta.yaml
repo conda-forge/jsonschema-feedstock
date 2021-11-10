@@ -1,4 +1,4 @@
-{% set version = "4.2.1" %}
+{% set version = "3.1.1" %}
 
 package:
   name: jsonschema
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jsonschema/jsonschema-{{ version }}.tar.gz
-  sha256: 390713469ae64b8a58698bb3cbc3859abe6925b565a973f87323ef21b09a27a8
+  sha256: 2fa0684276b6333ff3c0b1b27081f4b2305f0a36cf702a23db50edb141893c3f
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
@@ -17,37 +17,27 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.6
     - pip
     - setuptools-scm
   run:
+    - python >=3.6
+    # <https://github.com/Julian/jsonschema/blob/7ee391c6f94cd43e57806c41340515b5e866727f/setup.cfg#L29-L33>
     - attrs >=17.4.0
-    # TODO: upstream, importlib-* are conditional to <3.8/9, but probably not worth the non-noarch builds
     - importlib-metadata
-    - importlib_resources
-    - pyrsistent !=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0
-    - python >=3.7
+    - pyrsistent >=0.14.0
+    - setuptools
+    - six >=1.11.0
 
 test:
-  files:
-    - start_test.py
-  source_files:
-    - json
-    - jsonschema/tests
   requires:
     - pip
-    - pytest-cov
-    - flask
   imports:
     - jsonschema
   commands:
     - pip check
-    - jsonschema --version
     - jsonschema --help
-    - jsonschema --version | grep {{ version.replace(".", "\.") }}  # [unix]
-    # additional pytest args are set in start_test.py
-    - python start_test.py --cov-fail-under=93 -k "not find_validator_by_fully_qualified_object_name"
-
+    - jsonschema --version | grep {{ version.replace(".", "\.") }}
 
 about:
   home: https://github.com/Julian/jsonschema
