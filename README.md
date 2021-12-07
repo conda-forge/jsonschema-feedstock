@@ -32,6 +32,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-jsonschema-green.svg)](https://anaconda.org/conda-forge/jsonschema) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jsonschema.svg)](https://anaconda.org/conda-forge/jsonschema) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jsonschema.svg)](https://anaconda.org/conda-forge/jsonschema) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jsonschema.svg)](https://anaconda.org/conda-forge/jsonschema) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jsonschema--with--all-green.svg)](https://anaconda.org/conda-forge/jsonschema-with-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jsonschema-with-all.svg)](https://anaconda.org/conda-forge/jsonschema-with-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jsonschema-with-all.svg)](https://anaconda.org/conda-forge/jsonschema-with-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jsonschema-with-all.svg)](https://anaconda.org/conda-forge/jsonschema-with-all) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jsonschema--with--format-green.svg)](https://anaconda.org/conda-forge/jsonschema-with-format) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jsonschema-with-format.svg)](https://anaconda.org/conda-forge/jsonschema-with-format) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jsonschema-with-format.svg)](https://anaconda.org/conda-forge/jsonschema-with-format) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jsonschema-with-format.svg)](https://anaconda.org/conda-forge/jsonschema-with-format) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jsonschema--with--format--nongpl-green.svg)](https://anaconda.org/conda-forge/jsonschema-with-format-nongpl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jsonschema-with-format-nongpl.svg)](https://anaconda.org/conda-forge/jsonschema-with-format-nongpl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jsonschema-with-format-nongpl.svg)](https://anaconda.org/conda-forge/jsonschema-with-format-nongpl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jsonschema-with-format-nongpl.svg)](https://anaconda.org/conda-forge/jsonschema-with-format-nongpl) |
 
 Installing jsonschema
 =====================
@@ -43,10 +46,10 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `jsonschema` can be installed with:
+Once the `conda-forge` channel has been enabled, `jsonschema, jsonschema-with-all, jsonschema-with-format, jsonschema-with-format-nongpl` can be installed with:
 
 ```
-conda install jsonschema
+conda install jsonschema jsonschema-with-all jsonschema-with-format jsonschema-with-format-nongpl
 ```
 
 It is possible to list all of the versions of `jsonschema` available on your platform with:
