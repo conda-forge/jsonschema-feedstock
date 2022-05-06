@@ -1,7 +1,7 @@
 About jsonschema
 ================
 
-Home: https://github.com/Julian/jsonschema
+Home: https://github.com/python-jsonschema/jsonschema
 
 Package license: MIT
 
@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jsonschema-feed
 
 Summary: An implementation of JSON Schema validation for Python
 
-Development: https://github.com/Julian/jsonschema
+Development: https://github.com/python-jsonschema/jsonschema
 
 Documentation: https://python-jsonschema.readthedocs.org
 
