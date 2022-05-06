@@ -1,4 +1,4 @@
-{% set version = "4.4.0" %}
+{% set version = "4.5.1" %}
 
 package:
   name: jsonschema-meta
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jsonschema/jsonschema-{{ version }}.tar.gz
-  sha256: 636694eb41b3535ed608fe04129f26542b59ed99808b4f688aa32dcf55317a83
+  sha256: 7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc
 
 build:
   noarch: python
@@ -122,13 +122,13 @@ outputs:
         - python start_test.py --cov-fail-under=97
 
 about:
-  home: https://github.com/Julian/jsonschema
+  home: https://github.com/python-jsonschema/jsonschema
   license: MIT
   license_file: COPYING
   summary: An implementation of JSON Schema validation for Python
   doc_url: https://python-jsonschema.readthedocs.org
-  doc_source_url: https://github.com/Julian/jsonschema/blob/v{{ version }}/docs/index.rst
-  dev_url: https://github.com/Julian/jsonschema
+  doc_source_url: https://github.com/python-jsonschema/jsonschema/blob/v{{ version }}/docs/index.rst
+  dev_url: https://github.com/python-jsonschema/jsonschema
 
 extra:
   feedstock-name: jsonschema
