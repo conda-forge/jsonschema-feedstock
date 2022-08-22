@@ -15,8 +15,7 @@ PYTEST_ARGS = [
     "--cov=jsonschema",
     "--cov-report=term-missing:skip-covered",
     "--no-cov-on-fail",
-    # some missing fixture?
-    "-k", "not suite_bug",
+    "--ignore-glob=_helpers.py",
     *sys.argv[1:],
 ]
 
