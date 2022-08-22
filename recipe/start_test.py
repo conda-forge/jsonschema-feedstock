@@ -15,7 +15,7 @@ PYTEST_ARGS = [
     "--cov=jsonschema",
     "--cov-report=term-missing:skip-covered",
     "--no-cov-on-fail",
-    "--ignore-glob=_helpers.py",
+    "--ignore-glob=*/_helpers.py",
     *sys.argv[1:],
 ]
 
