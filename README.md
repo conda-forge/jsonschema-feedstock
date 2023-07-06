@@ -1,11 +1,11 @@
-About jsonschema
-================
+About jsonschema-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jsonschema-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/python-jsonschema/jsonschema
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jsonschema-feedstock/blob/main/LICENSE.txt)
 
 Summary: An implementation of JSON Schema validation for Python
 
