@@ -10,7 +10,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -58,7 +58,7 @@ outputs:
       host:
         - python >=3.8
       run:
-        - {{ pin_subpackage('jsonschema') }}
+        - {{ pin_subpackage('jsonschema', max_pin='x.x.x') }}
         - fqdn
         - idna
         - isoduration
@@ -82,7 +82,7 @@ outputs:
       host:
         - python >=3.8
       run:
-        - {{ pin_subpackage('jsonschema') }}
+        - {{ pin_subpackage('jsonschema', max_pin='x.x.x') }}
         - fqdn
         - idna
         - isoduration
@@ -106,8 +106,8 @@ outputs:
       host:
         - python >=3.8
       run:
-        - {{ pin_subpackage('jsonschema-with-format-nongpl') }}
-        - {{ pin_subpackage('jsonschema-with-format') }}
+        - {{ pin_subpackage('jsonschema-with-format-nongpl', max_pin='x.x.x') }}
+        - {{ pin_subpackage('jsonschema-with-format', max_pin='x.x.x') }}
     test:
       files:
         - start_test.py
