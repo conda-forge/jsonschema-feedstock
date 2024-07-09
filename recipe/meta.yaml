@@ -1,7 +1,10 @@
 {% set version = "4.23.0" %}
 
+# handle undefined PYTHON in `noarch: generic` outputs
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+
 package:
-  name: jsonschema-meta
+  name: jsonschema
   version: {{ version }}
 
 source:
@@ -9,54 +12,44 @@ source:
   sha256: d71497fef26351a33265337fa77ffeb82423f3ea21283cd9467bb03999266bc4
 
 build:
-  noarch: python
   number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
+  entry_points:
+    - jsonschema = jsonschema.cli:main
 
 requirements:
   host:
+    - hatch-fancy-pypi-readme
+    - hatch-vcs
+    - hatchling
+    - pip
     - python >=3.8
   run:
+    - attrs >=22.2.0
+    - importlib_resources >=1.4.0
+    - jsonschema-specifications >=2023.03.6
+    - pkgutil-resolve-name >=1.3.10
     - python >=3.8
+    - referencing >=0.28.4
+    - rpds-py >=0.7.1
+test:
+  requires:
+    - pip
+  imports:
+    - jsonschema
+  commands:
+    - pip check
+    - jsonschema --version
+    - jsonschema --help
+    - jsonschema --version | grep {{ version.replace(".", "\.") }}  # [unix]
 
 outputs:
   - name: jsonschema
-    build:
-      noarch: python
-      script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
-      entry_points:
-        - jsonschema = jsonschema.cli:main
-    requirements:
-      host:
-        - hatch-fancy-pypi-readme
-        - hatch-vcs
-        - hatchling
-        - pip
-        - python >=3.8
-      run:
-        - attrs >=22.2.0
-        - importlib_resources >=1.4.0
-        - jsonschema-specifications >=2023.03.6
-        - pkgutil-resolve-name >=1.3.10
-        - python >=3.8
-        - referencing >=0.28.4
-        - rpds-py >=0.7.1
-    test:
-      requires:
-        - pip
-      imports:
-        - jsonschema
-      commands:
-        - pip check
-        - jsonschema --version
-        - jsonschema --help
-        - jsonschema --version | grep {{ version.replace(".", "\.") }}  # [unix]
-
   - name: jsonschema-with-format
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage('jsonschema', max_pin='x.x.x') }}
         - fqdn
@@ -77,10 +70,8 @@ outputs:
 
   - name: jsonschema-with-format-nongpl
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage('jsonschema', max_pin='x.x.x') }}
         - fqdn
@@ -101,10 +92,8 @@ outputs:
 
   - name: jsonschema-with-all
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage('jsonschema-with-format-nongpl', max_pin='x.x.x') }}
         - {{ pin_subpackage('jsonschema-with-format', max_pin='x.x.x') }}
