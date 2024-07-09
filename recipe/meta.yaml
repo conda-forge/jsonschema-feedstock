@@ -20,6 +20,9 @@ build:
     - jsonschema = jsonschema.cli:main
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - hatch-fancy-pypi-readme
     - hatch-vcs
