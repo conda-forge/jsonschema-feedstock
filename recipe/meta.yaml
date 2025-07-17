@@ -1,4 +1,4 @@
-{% set version = "4.24.0" %}
+{% set version = "4.24.1" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/j/jsonschema/jsonschema-{{ version }}.tar.gz
-  sha256: 0b4e8069eb12aedfa881333004bccaec24ecef5a8a6a4b6df142b2cc9599d196
+  sha256: fe45a130cc7f67cd0d67640b4e7e3e2e666919462ae355eda238296eafeb4b5d
 
 build:
   number: 0
