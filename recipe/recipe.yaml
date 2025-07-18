@@ -128,7 +128,6 @@ outputs:
             - jsonpath-ng
             - pytest-cov
             - python ${{ python_min }}.*
-            - virtue
         script:
           - python start_test.py --cov-fail-under=94 -k "not WrappedReferencingError_hashability"
 
