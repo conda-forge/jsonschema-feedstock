@@ -55,7 +55,7 @@ outputs:
         script:
           - jsonschema --version
           - jsonschema --help
-          - jsonschema --version | python -c "import sys; assert sys.stdin.read() == '${{ version }}'"
+          - jsonschema --version | python -c "import sys; v = sys.stdin.read().strip(); assert v == '${{ version }}', v"
 
   - package:
       name: jsonschema-with-format
@@ -125,11 +125,11 @@ outputs:
             - json
         requirements:
           run:
-            - flask
-            - pip
+            - jsonpath-ng
             - pytest-cov
+            - python ${{ python_min }}.*
+            - virtue
         script:
-          - pip check
           - python start_test.py --cov-fail-under=94 -k "not WrappedReferencingError_hashability"
 
 about:
