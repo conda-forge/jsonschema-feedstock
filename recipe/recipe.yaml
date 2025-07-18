@@ -9,19 +9,18 @@ recipe:
   name: jsonschema
   version: ${{ version }}
 
-build:
-  number: 0
-  noarch: python
-
 source:
   url: https://pypi.org/packages/source/j/jsonschema/jsonschema-${{ version }}.tar.gz
   sha256: fe45a130cc7f67cd0d67640b4e7e3e2e666919462ae355eda238296eafeb4b5d
+
+build:
+  number: 0
+  noarch: python
 
 outputs:
   - package:
       name: jsonschema
     build:
-      number: 0
       noarch: python
       script:
         - ${{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
