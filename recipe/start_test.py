@@ -10,6 +10,8 @@ os.environ.update(JSON_SCHEMA_TEST_SUITE=str(HERE / "json"))
 
 PYTEST_ARGS = [
     "-vv",
+    "--tb=long",
+    "--color=yes",
     "--pyargs",
     "jsonschema",
     "--cov=jsonschema",

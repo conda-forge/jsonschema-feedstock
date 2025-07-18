@@ -9,9 +9,7 @@ Package license: MIT
 
 Summary: An implementation of JSON Schema validation for Python
 
-Development: https://github.com/python-jsonschema/jsonschema
-
-Documentation: https://python-jsonschema.readthedocs.org
+Documentation: https://python-jsonschema.readthedocs.org/
 
 Current build status
 ====================
