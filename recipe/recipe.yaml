@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "4.25.0"
+  version: "4.25.1"
   python_check_max: "3.13"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/j/jsonschema/jsonschema-${{ version }}.tar.gz
-  sha256: e63acf5c11762c0e6672ffb61482bdf57f0876684d8d249c0fe2d730d48bc55f
+  sha256: e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85
 
 build:
   number: 0
