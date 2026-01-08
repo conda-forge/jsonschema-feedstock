@@ -39,7 +39,7 @@ outputs:
         - jsonschema-specifications >=2023.03.6
         - python >=${{ python_min }}
         - referencing >=0.28.4
-        - rpds-py >=0.7.1
+        - rpds-py >=0.25.0
     tests:
       - python:
           imports: jsonschema
