@@ -3,18 +3,18 @@ schema_version: 1
 
 context:
   version: "4.26.0"
-  python_check_max: "3.13"
+  python_check_max: "3.14"
 
 recipe:
   name: jsonschema
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/j/jsonschema/jsonschema-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/j/jsonschema/jsonschema-${{ version }}.tar.gz
   sha256: 0c26707e2efad8aa1bfc5b7ce170f3fccc2e4918ff85989ba9ffa9facb2be326
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 outputs:
@@ -135,7 +135,8 @@ about:
   license: MIT
   license_file: COPYING
   summary: An implementation of JSON Schema validation for Python
-  homepage: https://github.com/python-jsonschema/jsonschema
+  homepage: https://pypi.org/project/jsonschema
+  repository: https://github.com/python-jsonschema/jsonschema
   documentation: https://python-jsonschema.readthedocs.org
 
 extra:
